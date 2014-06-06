@@ -6,13 +6,11 @@ my_file = open(filename)
 
 text = my_file.read()
 
-letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-letter_count = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+letter_count = [0] * 26
 
 for char in text:
-    if char.lower() in letters:
-        index = letters.index(char.lower())
-        letter_count[index] += 1
+    if (ord(char)> 64 and ord(char)<91) or (ord(char) > 96 and ord(char) < 123):
+        letter_count[ord(char.lower())-97] += 1
 
-for l in letter_count:        
+for l in letter_count:
     print l
